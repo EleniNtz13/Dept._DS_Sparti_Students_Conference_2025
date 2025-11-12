@@ -29,7 +29,7 @@ Text:
 {pdf_text[:3000]}
 """
 
-# Initializes the OpenAI client using my API key
+# Initializes the OpenAI client using your API key
 client = OpenAI(
     api_key="enter your API key"
 )
@@ -52,5 +52,6 @@ with open("output.txt", "w", encoding="utf-8") as output_file:
 
 # Prints a message confirming that the questions were saved to the file
 print("The questions were saved to the file 'output.txt'")
+
 
 
