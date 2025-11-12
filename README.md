@@ -55,6 +55,34 @@ The difference in function values between iterations is less than
 𝑐
 3
 
+
+
+
+Initial starting points 
+(
+𝑥
+0
+,
+𝑦
+0
+)
+
+Learning rate 
+𝑎
+
+Three termination criteria: 
+𝑐
+1
+, 
+𝑐
+2
+, and 
+𝑐
+3
+
+
+
+
 Or when the maximum number of iterations (1000) is exceeded
 
 The user receives:
