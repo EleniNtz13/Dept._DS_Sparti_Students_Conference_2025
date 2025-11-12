@@ -65,3 +65,9 @@ The third code also uses the OpenAI API, but with a different approach: it enhan
 - The integration of artificial intelligence in educational workflows
 
 - A clear connection between mathematical theory and modern AI tools, enhancing student engagement and understanding
+
+
+  ### Tools Used 🧠
+
+- ChatGPT AI Tool for assistance and code optimization
+
