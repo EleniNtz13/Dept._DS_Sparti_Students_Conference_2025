@@ -19,7 +19,11 @@ The first code implements the Steepest Descent algorithm to minimize a two-varia
 
 - Initial starting points: $(x_0, y_0)$,
 
-- Learning rate: $a$,
+- Learning rate: $a$, a number that controls the size of each step an optimization algorithm takes when updating its parameter. It tells how big of a correction to make in the direction indicated by the gradient:
+
+   - If it’s too large → the algorithm may overshoot the minimum and diverge.
+
+   - If it’s too small → the steps become tiny, and convergence becomes very slow.
 
 - Three constant termination criteria: $c_1, c_2, c_3$,
 
