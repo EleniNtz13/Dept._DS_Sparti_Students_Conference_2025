@@ -17,7 +17,9 @@ The purpose of this work is to:
 
 #### 1️⃣ Steepest Descent Algorithm Implementation (Steepest_Descent.py)
 
-The first code implements the Steepest Descent algorithm to minimize a two-variable function. The user is prompted to input:
+The first code implements the Steepest Descent algorithm to minimize a two-variable function. 
+
+👨🏻‍💻 The user is prompted to input:
 
 - Initial starting points: $(x_0, y_0)$,
 
