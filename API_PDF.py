@@ -6,10 +6,10 @@ def extract_text_from_pdf(pdf_path): # Defines a function named extract_text_fro
         reader = PyPDF2.PdfReader(file) # Creates a PdfReader object to read the contents of the PDF
         text = "" # Initializes an empty string to store the extracted text
         for page in reader.pages: # Loops through each page in the PDF
-            page_text = page.extract_text()
-            if page_text:
-                text += page_text
-        return text
+            page_text = page.extract_text() # Extracts text from the current page
+            if page_text: # If text is found on the page...
+                text += page_text # ...it appends it to the text string
+        return text # Returns the full extracted text from the PDF
 
 pdf_path = "document.pdf"
 try:
@@ -43,5 +43,6 @@ with open("output.txt", "w", encoding="utf-8") as output_file:
     output_file.write(output_message)
 
 print("Οι ερωτήσεις αποθηκεύτηκαν στο αρχείο 'output.txt'")
+
 
 
