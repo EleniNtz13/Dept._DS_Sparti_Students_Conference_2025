@@ -1,17 +1,17 @@
 ## 🎓 Mathematical Concepts of Linear Algebra and Optimization Using a Generative Artificial Intelligence Tool – Implementation of the Steepest Descent Method
 
-This project was presented at the **1st Student and Mathematical Conference** of the University of the Peloponnese, organized by the Department of Digital Systems on March 14, 2025. Its aim was to bridge theoretical mathematical concepts with modern artificial intelligence technologies through the practical implementation of the Steepest Descent algorithm.
+This project was presented at the **1st Student and Mathematical Conference** of the University of the Peloponnese, organized by the Department of Digital Systems on *March 14, 2025*. Its aim was to bridge theoretical mathematical concepts with modern artificial intelligence technologies through the practical implementation of the Steepest Descent algorithm.
 
 ### 🎯 Project Objective
 The purpose of this work is to:
 
-- Highlight the connection between linear algebra, optimization, and artificial intelligence.
+- Highlight the connection between *linear algebra*, *optimization*, and *artificial intelligence*.
 
-- Demonstrate how the Steepest Descent method can be used to find the minimum of a function with two variables.
+- Demonstrate how the **Steepest Descent method** can be used to find the minimum of a function with two variables.
 
-- Showcase how a generative AI tool can support the educational process by automatically generating assessment material and enhancing conceptual understanding.
+- Showcase how a **Generative AI Tool** can support the educational process by automatically generating assessment material and enhancing conceptual understanding.
 
-🧮 Code Overview
+### 🧮 Code Overview
 
 1️⃣ Steepest_Descent.py, Steepest Descent Algorithm Implementation
 The first code implements the Steepest Descent algorithm to minimize a two-variable function. The user is prompted to input:
