@@ -1,7 +1,6 @@
-from openai import OpenAI
+from openai import OpenAI # Imports the OpenAI class from the openai library, which allows you to interact with OpenAI's API
 
-
-
+# Creates an instance of the OpenAI client using my API key
 client = OpenAI(
     api_key="enter your API key"
 )
@@ -27,3 +26,4 @@ with open("output.txt", "w", encoding="utf-8") as output_file:
     output_file.write(output_message)
 
 print("Output has been written to output.txt")
+
