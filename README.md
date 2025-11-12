@@ -5,13 +5,11 @@ This project was presented at the **1st Student and Mathematical Conference** of
 ### 🎯 Project Objective
 The purpose of this work is to:
 
-Highlight the connection between linear algebra, optimization, and artificial intelligence.
+- Highlight the connection between linear algebra, optimization, and artificial intelligence.
 
-Demonstrate how the Steepest Descent method can be used to find the minimum of a function with two variables.
+- Demonstrate how the Steepest Descent method can be used to find the minimum of a function with two variables.
 
-Showcase how a generative AI tool can support the educational process by automatically generating assessment material and enhancing conceptual understanding.
-
-
+- Showcase how a generative AI tool can support the educational process by automatically generating assessment material and enhancing conceptual understanding.
 
 🧮 Code Overview
 
