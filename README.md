@@ -19,15 +19,15 @@ The purpose of this work is to:
 
 The first code implements the Steepest Descent algorithm to minimize a two-variable function. The user is prompted to input:
 
-- Initial starting points: $(x_0, y_0)$,
+- Initial starting points: **$(x_0, y_0)$**,
 
-- Learning rate: $a$, a number that controls the size of each step an optimization algorithm takes when updating its parameter. It tells how big of a correction to make in the direction indicated by the gradient:
+- Learning rate: **$a$**, a number that controls the size of each step an optimization algorithm takes when updating its parameter. It tells how big of a correction to make in the direction indicated by the gradient:
 
    - If it’s too large → the algorithm may overshoot the minimum and diverge.
 
    - If it’s too small → the steps become tiny, and convergence becomes very slow.
 
-- Three constant termination criteria: $c_1, c_2, c_3$,
+- Three constant termination criteria: **$c_1, c_2, c_3$**,
 
 
 🧮 The algorithm calculates partial derivatives and the gradient, updating the coordinates at each iteration. The process terminates when:
