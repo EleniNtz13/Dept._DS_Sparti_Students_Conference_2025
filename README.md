@@ -15,40 +15,14 @@ The purpose of this work is to:
 
 1️⃣ Steepest Descent Algorithm Implementation (Steepest_Descent.py)
 
-**Initial starting points:**
-$(x_0, y_0)$
-
-**Learning rate:**
-$$ a $$
-
-**Three termination criteria:**
-$$ c_1, c_2, c_3 $$
-
-
-
 The first code implements the Steepest Descent algorithm to minimize a two-variable function. The user is prompted to input:
 
-- Initial starting points 
-(
-𝑥
-0
-,
-𝑦
-0
-)
+- Initial starting points: $(x_0, y_0)$,
 
-- Learning rate 
-𝑎
+- Learning rate: $a$$,
 
-- Three termination criteria: 
-𝑐
-1
-, 
-𝑐
-2
-, and 
-𝑐
-3
+- Three termination criteria: $c_1, c_2, c_3$,
+
 
 The function to be minimized
 
