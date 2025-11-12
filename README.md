@@ -35,7 +35,7 @@ The first code implements the Steepest Descent algorithm to minimize a two-varia
 - Or when the maximum number of iterations (1000) is exceeded
 
 
-The user receives:
+🙍🏻‍♂️ The user receives:
 
 - A visual representation of the algorithm’s path in both 2D and 3D graphs
 
@@ -45,15 +45,15 @@ The user receives:
 
 
 
-#### 2️⃣ API_Conf_DS_2025.py, Question Generation Based on Algorithm Parameters
+#### 2️⃣ Question Generation Based on Algorithm Parameters (API_Conf_DS_2025.py)
 The second code uses the OpenAI API to generate multiple-choice questions based on the algorithm’s structure and parameters. The questions are created in Greek and are tailored to the Steepest Descent method, using a predefined prompt that includes theoretical context and algorithmic details. The difficulty of each question is defined using a Likert scale (1–5), and the output is saved in a text file.
 
-This approach focuses on generating questions directly from the algorithm’s logic and structure, without external documents.
+This approach focuses on generating questions directly from the algorithm’s logic and structure 🧠, without external documents. 
 
 #### 3️⃣ API_PDF.py, Question Generation Based on PDF Input
 The third code also uses the OpenAI API, but with a different approach: it enhances the language model’s input by providing a PDF document containing theoretical or practical content related to the Steepest Descent method. The model extracts relevant information from the PDF and generates questions accordingly.
 
-This method differs from the second in that it relies on external, structured input (the PDF) to guide the generation of questions, allowing for deeper contextualization and more accurate alignment with the source material.
+This method differs from the second in that it relies on external, structured input (the PDF 📝) to guide the generation of questions, allowing for deeper contextualization and more accurate alignment with the source material.
 
 #### 🔍 Key Difference Between Code 2 and Code 3
 Code 2 generates questions based on predefined algorithmic data and prompts, focusing on the internal logic of the Steepest Descent method.
