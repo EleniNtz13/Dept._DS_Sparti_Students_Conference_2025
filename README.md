@@ -50,7 +50,7 @@ The second code uses the OpenAI API to generate multiple-choice questions based 
 
 This approach focuses on generating questions directly from the algorithm’s logic and structure 🧠, without external documents. 
 
-#### 3️⃣ API_PDF.py, Question Generation Based on PDF Input
+#### 3️⃣ Question Generation Based on PDF Input (API_PDF.py)
 The third code also uses the OpenAI API, but with a different approach: it enhances the language model’s input by providing a PDF document containing theoretical or practical content related to the Steepest Descent method. The model extracts relevant information from the PDF and generates questions accordingly.
 
 This method differs from the second in that it relies on external, structured input (the PDF 📝) to guide the generation of questions, allowing for deeper contextualization and more accurate alignment with the source material.
