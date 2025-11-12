@@ -13,7 +13,7 @@ The purpose of this work is to:
 
 ### Code Overview 🧐
 
-1️⃣ Steepest Descent Algorithm Implementation (Steepest_Descent.py)
+#### 1️⃣ Steepest Descent Algorithm Implementation (Steepest_Descent.py)
 
 The first code implements the Steepest Descent algorithm to minimize a two-variable function. The user is prompted to input:
 
@@ -37,28 +37,30 @@ The first code implements the Steepest Descent algorithm to minimize a two-varia
 
 The user receives:
 
-A visual representation of the algorithm’s path in both 2D and 3D graphs
+- A visual representation of the algorithm’s path in both 2D and 3D graphs
 
-Final values of the variables and the function
+- Final values of the variables and the function
 
-A message indicating which termination criterion was satisfied
+- A message indicating which termination criterion was satisfied
 
-2️⃣ API_Conf_DS_2025.py, Question Generation Based on Algorithm Parameters
+
+
+#### 2️⃣ API_Conf_DS_2025.py, Question Generation Based on Algorithm Parameters
 The second code uses the OpenAI API to generate multiple-choice questions based on the algorithm’s structure and parameters. The questions are created in Greek and are tailored to the Steepest Descent method, using a predefined prompt that includes theoretical context and algorithmic details. The difficulty of each question is defined using a Likert scale (1–5), and the output is saved in a text file.
 
 This approach focuses on generating questions directly from the algorithm’s logic and structure, without external documents.
 
-3️⃣ API_PDF.py, Question Generation Based on PDF Input
+#### 3️⃣ API_PDF.py, Question Generation Based on PDF Input
 The third code also uses the OpenAI API, but with a different approach: it enhances the language model’s input by providing a PDF document containing theoretical or practical content related to the Steepest Descent method. The model extracts relevant information from the PDF and generates questions accordingly.
 
 This method differs from the second in that it relies on external, structured input (the PDF) to guide the generation of questions, allowing for deeper contextualization and more accurate alignment with the source material.
 
-🔍 Key Difference Between Code 2 and Code 3
+#### 🔍 Key Difference Between Code 2 and Code 3
 Code 2 generates questions based on predefined algorithmic data and prompts, focusing on the internal logic of the Steepest Descent method.
 
 Code 3 enhances the model’s understanding by feeding it a PDF document, from which it extracts information to generate questions. This allows for more nuanced and content-rich question creation, especially useful when working with educational or scientific texts.
 
-📊 What the Code Demonstrates to the User
+### 📊 What the Code Demonstrates to the User
 The practical application of optimization theory
 
 The dynamic path toward a function’s minimum
