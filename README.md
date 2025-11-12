@@ -63,24 +63,20 @@ Final values of the variables and the function
 
 A message indicating which termination criterion was satisfied
 
-2️⃣ Automatic Question Generation Using Generative AI
-The second code uses the OpenAI API to automatically generate multiple-choice questions based on the content of a PDF document. The process includes:
+2️⃣ Question Generation Based on Algorithm Parameters
+The second code uses the OpenAI API to generate multiple-choice questions based on the algorithm’s structure and parameters. The questions are created in Greek and are tailored to the Steepest Descent method, using a predefined prompt that includes theoretical context and algorithmic details. The difficulty of each question is defined using a Likert scale (1–5), and the output is saved in a text file.
 
-Extracting text from the PDF (e.g., theoretical background on AI or optimization)
+This approach focuses on generating questions directly from the algorithm’s logic and structure, without external documents.
 
-Creating a prompt that asks the model to generate 10 questions in Greek
+3️⃣ Question Generation Based on PDF Input
+The third code also uses the OpenAI API, but with a different approach: it enhances the language model’s input by providing a PDF document containing theoretical or practical content related to the Steepest Descent method. The model extracts relevant information from the PDF and generates questions accordingly.
 
-Assigning difficulty levels using a Likert scale (1–5)
+This method differs from the second in that it relies on external, structured input (the PDF) to guide the generation of questions, allowing for deeper contextualization and more accurate alignment with the source material.
 
-Saving the generated questions to a text file
+🔍 Key Difference Between Code 2 and Code 3
+Code 2 generates questions based on predefined algorithmic data and prompts, focusing on the internal logic of the Steepest Descent method.
 
-The user receives:
-
-High-quality questions suitable for university-level learners
-
-A range of difficulty levels for educational assessment
-
-A demonstration of how AI can assist in content creation and learning
+Code 3 enhances the model’s understanding by feeding it a PDF document, from which it extracts information to generate questions. This allows for more nuanced and content-rich question creation, especially useful when working with educational or scientific texts.
 
 📊 What the Code Demonstrates to the User
 The practical application of optimization theory
