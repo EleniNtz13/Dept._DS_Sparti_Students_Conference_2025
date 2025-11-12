@@ -15,11 +15,9 @@ The purpose of this work is to:
 
 1️⃣ Steepest Descent Algorithm Implementation (Steepest_Descent.py)
 
-  \begin{itemize}
-    \item \textbf{Initial starting points:} \( (x_0, y_0) \)
-    \item \textbf{Learning rate:} \( a \)
-    \item \textbf{Three termination criteria:} \( c_1 \), \( c_2 \), and \( c_3 \)
-  \end{itemize}
+- **Initial starting points:** \( (x_0, y_0) \)
+- **Learning rate:** \( a \)
+- **Three termination criteria:** \( c_1 \), \( c_2 \), and \( c_3 \)
 
 
 
