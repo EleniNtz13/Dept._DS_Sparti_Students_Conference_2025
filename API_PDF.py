@@ -1,11 +1,11 @@
-import PyPDF2 !!
-from openai import OpenAI
+import PyPDF2 # A Python library used to read and extract text from PDF files
+from openai import OpenAI # Imports the OpenAI client to interact with the OpenAI API
 
-def extract_text_from_pdf(pdf_path):
-    with open(pdf_path, 'rb') as file:
-        reader = PyPDF2.PdfReader(file)
-        text = ""
-        for page in reader.pages:
+def extract_text_from_pdf(pdf_path): # Defines a function named extract_text_from_pdf that takes a file path to a PDF as input
+    with open(pdf_path, 'rb') as file: # Opens the PDF file in binary read mode ('rb')
+        reader = PyPDF2.PdfReader(file) # Creates a PdfReader object to read the contents of the PDF
+        text = "" # Initializes an empty string to store the extracted text
+        for page in reader.pages: # Loops through each page in the PDF
             page_text = page.extract_text()
             if page_text:
                 text += page_text
@@ -43,4 +43,5 @@ with open("output.txt", "w", encoding="utf-8") as output_file:
     output_file.write(output_message)
 
 print("Οι ερωτήσεις αποθηκεύτηκαν στο αρχείο 'output.txt'")
+
 
