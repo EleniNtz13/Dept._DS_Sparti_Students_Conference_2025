@@ -1,4 +1,4 @@
-import PyPDF2
+import PyPDF2 !!
 from openai import OpenAI
 
 def extract_text_from_pdf(pdf_path):
@@ -43,3 +43,4 @@ with open("output.txt", "w", encoding="utf-8") as output_file:
     output_file.write(output_message)
 
 print("Οι ερωτήσεις αποθηκεύτηκαν στο αρχείο 'output.txt'")
+
