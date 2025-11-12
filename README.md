@@ -1,4 +1,4 @@
-🎓 Project Title: Mathematical Concepts of Linear Algebra and Optimization Using a Generative Artificial Intelligence Tool – Implementation of the Steepest Descent Method
+🎓 ###Mathematical Concepts of Linear Algebra and Optimization Using a Generative Artificial Intelligence Tool – Implementation of the Steepest Descent Method###
 
 This project was presented at the 1st Student and Mathematical Conference of the University of the Peloponnese, organized by the Department of Digital Systems on March 14, 2025. Its aim was to bridge theoretical mathematical concepts with modern artificial intelligence technologies through the practical implementation of the Steepest Descent algorithm.
 
