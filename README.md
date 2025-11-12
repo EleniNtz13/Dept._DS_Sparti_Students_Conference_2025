@@ -57,6 +57,8 @@ The second code uses the OpenAI API to generate multiple-choice questions *based
 #### 3️⃣ Question Generation Based on PDF Input (API_PDF.py)
 The third code also uses the OpenAI API, but with a different approach: it enhances the language model’s input *by providing a PDF document 📝* containing theoretical or practical content related to the Steepest Descent method. The model extracts relevant information from the PDF and generates questions accordingly, allowing for deeper contextualization and more accurate alignment with the source material.
 
+---
+
 ### 📊 What the Code Demonstrates to the User
 - The practical application of optimization theory
 
