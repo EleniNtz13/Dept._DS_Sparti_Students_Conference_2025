@@ -19,6 +19,7 @@ The purpose of this work is to:
 
 The first code implements the Steepest Descent algorithm to minimize a two-variable function. 
 
+
 👨🏻‍💻 The user is prompted to input:
 
 - Initial starting points: $(x_0, y_0)$,
