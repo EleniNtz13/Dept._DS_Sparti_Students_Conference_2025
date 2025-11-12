@@ -11,25 +11,31 @@ def extract_text_from_pdf(pdf_path): # Defines a function named extract_text_fro
                 text += page_text # ...it appends it to the text string
         return text # Returns the full extracted text from the PDF
 
-pdf_path = "document.pdf"
+pdf_path = "document.pdf" # Specifies the path to the PDF file
+# Tries to extract text from the PDF using the function defined earlier
 try:
     pdf_text = extract_text_from_pdf(pdf_path)
+# If the file is not found, prints an error message in Greek and exits the program    
 except FileNotFoundError:
-    print(f"Error: Το αρχείο PDF '{pdf_path}' δεν βρέθηκε.")
+    print(f"Error: PDF '{pdf_path}' is not found.")
     exit(1)
 
+# Creates a prompt in Greek asking OpenAI to generate 10 multiple-choice questions based on the extracted text
 prompt = f"""
-Γράψε 10 ερωτήσεις πολλαπλής επιλογής για την Τεχνητή Νοημοσύνη και steepest descent σύμφωνα με το κείμενο που ακολουθεί. Κάθε ερώτηση να έχει 5 πιθανές απαντήσεις και μόνο μια από αυτές να είναι σωστή. Το κοινό που απαντά στις ερωτήσεις είναι πανεπιστημιακού επιπέδου. Οι ερωτήσεις και οι απαντήσεις να είναι στα ελληνικά. Το επίπεδο δυσκολίας κάθε ερώτησης είναι σε κλίμακα Likert 1 ως 5 (1 = πολύ εύκολη και 5 = πολύ δύσκολη). Από τις 10 ερωτήσεις, η μια να έχει επίπεδο δυσκολίας 1, οι δυο να έχουν επίπεδο δυσκολίας 2, οι τρεις να έχουν επίπεδο δυσκολίας 3, οι δυο να έχουν επίπεδο δυσκολίας 4, και οι υπόλοιπες να έχουν επίπεδο δυσκολίας 5.
+Write 10 multiple choice questions about Artificial Intelligence and steepest descent according to the text below. Each question should have 5 possible answers and only one of them should be correct. The audience answering the questions should be at a university level. The questions and answers should be in Greek. The difficulty level of each question is on a Likert scale of 1 to 5 (1 = very easy and 5 = very difficult). Of the 10 questions, one has a difficulty level of 1, two have a difficulty level of 2, three have a difficulty level of 3, two have a difficulty level of 4, and the rest have a difficulty level of 5.
 
-
-Κείμενο:
+# The prompt includes 3000 characters of the extracted PDF content
+Text:
 {pdf_text[:3000]}
 """
 
+# Initializes the OpenAI client using my API key
 client = OpenAI(
     api_key="enter your API key"
 )
 
+# Sends the prompt to the OpenAI API using the gpt-4o-mini model
+# The message is sent as a user input in a chat format
 completion = client.chat.completions.create(
     model="gpt-4o-mini",
     messages=[
@@ -37,12 +43,12 @@ completion = client.chat.completions.create(
     ]
 )
 
+# Retrieves the generated response (the questions) from the API
 output_message = completion.choices[0].message.content
 
+# Opens a file named output.txt in write mode with UTF-8 encoding and writes the generated questions to it
 with open("output.txt", "w", encoding="utf-8") as output_file:
     output_file.write(output_message)
 
-print("Οι ερωτήσεις αποθηκεύτηκαν στο αρχείο 'output.txt'")
-
-
-
+# Prints a message confirming that the questions were saved to the file
+print("The questions were saved to the file 'output.txt'")
