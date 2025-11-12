@@ -11,6 +11,8 @@ The purpose of this work is to:
 
 - Showcase how a **Generative AI Tool** can support the educational process by automatically generating assessment material and enhancing conceptual understanding.
 
+----
+
 ### 🧐 Code Overview 
 
 #### 1️⃣ Steepest Descent Algorithm Implementation (Steepest_Descent.py)
