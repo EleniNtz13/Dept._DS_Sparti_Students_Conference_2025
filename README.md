@@ -16,7 +16,7 @@ The purpose of this work is to:
 1️⃣ Steepest Descent Algorithm Implementation (Steepest_Descent.py)
 
 **Initial starting points:**
-$ (x_0, y_0) $
+$(x_0, y_0)$
 
 **Learning rate:**
 $$ a $$
