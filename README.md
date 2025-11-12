@@ -21,7 +21,7 @@ The first code implements the Steepest Descent algorithm to minimize a two-varia
 
 - Learning rate: $a$,
 
-- Three termination criteria: $c_1, c_2, c_3$,
+- Three constant termination criteria: $c_1, c_2, c_3$,
 
 
 🧮 The algorithm calculates partial derivatives and the gradient, updating the coordinates at each iteration. The process terminates when:
