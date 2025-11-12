@@ -19,56 +19,21 @@ The first code implements the Steepest Descent algorithm to minimize a two-varia
 
 - Initial starting points: $(x_0, y_0)$,
 
-- Learning rate: $a$$,
+- Learning rate: $a$,
 
 - Three termination criteria: $c_1, c_2, c_3$,
 
 
-The function to be minimized
+🧮 The algorithm calculates partial derivatives and the gradient, updating the coordinates at each iteration. The process terminates when:
 
-The algorithm calculates partial derivatives and the gradient, updating the coordinates at each iteration. The process terminates when:
+- The gradient norm is smaller than $𝑐_1$
 
-The gradient norm is smaller than 
-𝑐
-1
+- The distance between successive points is less than $𝑐_2$
 
-The distance between successive points is less than 
-𝑐
-2
+- The difference in function values between iterations is less than $𝑐_3$
 
-The difference in function values between iterations is less than 
-𝑐
-3
+- Or when the maximum number of iterations (1000) is exceeded
 
-
-
-
-Initial starting points 
-(
-𝑥
-0
-,
-𝑦
-0
-)
-
-Learning rate 
-𝑎
-
-Three termination criteria: 
-𝑐
-1
-, 
-𝑐
-2
-, and 
-𝑐
-3
-
-
-
-
-Or when the maximum number of iterations (1000) is exceeded
 
 The user receives:
 
