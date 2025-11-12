@@ -13,10 +13,11 @@ The purpose of this work is to:
 
 ### Code Overview 🧐
 
-1️⃣ Steepest_Descent.py, Steepest Descent Algorithm Implementation
+1️⃣ Steepest Descent Algorithm Implementation (Steepest_Descent.py)
+
 The first code implements the Steepest Descent algorithm to minimize a two-variable function. The user is prompted to input:
 
-Initial starting points 
+- Initial starting points 
 (
 𝑥
 0
@@ -25,10 +26,10 @@ Initial starting points
 0
 )
 
-Learning rate 
+- Learning rate 
 𝑎
 
-Three termination criteria: 
+- Three termination criteria: 
 𝑐
 1
 , 
