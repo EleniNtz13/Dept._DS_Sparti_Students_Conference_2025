@@ -243,7 +243,7 @@ def main(): #The function main()
     ax2 = fig.add_subplot(122)
     # Create a new subgraph in the second space with a 1x2 layout (one row and two columns)
 
-    ax2.contour(X, Y, Z, levels=50, cmap='viridis') # Draw contour lines
+    ax2.contour(X, Y, Z, levels=50, cmap='viridis') # Draw contour curves
     # levels=50: Defines the number of contour lines to draw
     # cmap='viridis': Refers to the colors that will depict the curves ("viridis" style)
 
@@ -271,6 +271,7 @@ def main(): #The function main()
 # Completing main
 
 main()
+
 
 
 
