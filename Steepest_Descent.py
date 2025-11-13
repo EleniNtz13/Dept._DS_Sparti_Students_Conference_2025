@@ -61,25 +61,25 @@ def f(): # The function f()
             print("Invalid input! Please enter a valid function.") # In this case, a corresponding message is displayed, informing the user and requesting the input of a valid function again
 
 # Implementation of the steepest_descent algorithm for minimizing a function of two variables
-def steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x, derivative_y): # f_num: Η συνάρτηση προς ελαχιστοποίηση - μετατροπή της συμβολικής συνάρτησης σε αριθμητική με χρήση του lambdify από την sympy
-    tries = 0 # tries: Αντιπροσωπεύει τον αριθμό των επαναλήψεων του αλγορίθμου, δηλαδή πόσες φορές ο αλγόριθμος θα επαναλάβει την διαδικασία για την συνάρτηση που έχει εισάγει ο χρήστης
-    MAX_TRIES = 1000 # MAX_TRIES: Ο μέγιστος αριθμός επαναλήψεων. Αν ο αλγόριθμος δεν συγκλίνει πριν φτάσει σε αυτόν τον αριθμό, τότε θα τερματιστεί
-    points = [] # points: Λίστα που αποθηκεύει τα σημεία που επισκέπτεται ο αλγόριθμος μέχρι να φτάσει στο τελικό σημείο ή το MAX_TRIES
-    x, y = sp.symbols('x y') # sp: Από την βιβλιοθήκη sympy
-    # symbols: Συνάρτηση της βιβλιοθήκης sympy, χρησιμοποιείται για την δημιουργία συμβολικών μεταβλητών, με τις μεταβλητές αυτές να μην είναι αριθμοί αλλά συμβολισμοί που χρησιμοποιούνται στις εξισώσεις
-    # x, y: Η symbols επιστρέφει δύο συμβολικές μεταβλητές τις οποίες αποδίσει στις x, y
-    # Έτσι, έχει δύο μεταβλητές οι οποίες μπορούν να χρησιμοποιηθούν στην παραγώγιση, στην επίλυση εξισώσεων κλπ
+def steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x, derivative_y): # f_num: The function to minimize - converting the symbolic function to arithmetic using lambdify from sympy
+    tries = 0 # tries: Represents the number of iterations of the algorithm, that is, how many times the algorithm will repeat the process for the function entered by the user
+    MAX_TRIES = 1000 # MAX_TRIES: The maximum number of iterations. If the algorithm does not converge before reaching this number, then it will terminate
+    points = [] # points: List that stores the points visited by the algorithm until it reaches the final point or MAX_TRIES
+    x, y = sp.symbols('x y') # sp: From the sympy library
+    # symbols: Function of the sympy library, used to create symbolic variables, with these variables not being numbers but symbols used in equations
+    # x, y: symbols returns two symbolic variables which it assigns to x, y
+    # So, it has two variables which can be used in derivation, solving equations, etc.
 
-    x_path = [x0] # x_path: Λίστα που αποθηκεύει την τιμή του x κατά την πορεία του αλγορίθμου, ώστε να μπορεί να γίνει απεικόνιση
-    y_path = [y0] # y_path: Λίστα που αποθηκεύει την τιμή του y κατά την πορεία του αλγορίθμου, ώστε να μπορεί να γίνει απεικόνιση
-    z_path = [f_num(x0, y0)] # z_path: Λίστα που αποθηκεύει την τιμή του f(x, y) κατά την πορεία του αλγορίθμου, ώστε να μπορεί να γίνει απεικόνιση
+    x_path = [x0] # x_path: List that stores the value of x during the course of the algorithm, so that it can be visualized
+    y_path = [y0] # y_path: List that stores the value of y during the course of the algorithm, so that it can be visualized
+    z_path = [f_num(x0, y0)] # z_path: List that stores the value of f(x, y) during the course of the algorithm, so that it can be visualized
 
-    slope_x = derivative_x.subs({x: x0, y: y0}).evalf() # Υπολογίζεται η τιμή της παραγώγου στο σημείο (x0, y0), μετατρέπεται το αποτέλεσμα σε αριθμητική τιμή και αποθηκεύεται στην μεταβλητή slope_x
-    # derivative_x: Η μερική παράγωγος της συνάρτησης ως προς την μεταβλητή x
-    # .subs({x: x0, y: y0}): Μέθοδος η οποία χρησιμοποιείται για να αντικαταστήσει τις μεταβλητές x, y με τις τιμές x0, y0 αντίστοιχα
-    # .evalf(): Μέθοδος η οποία μετατρέπει την συμβολική έκφραση σε αριθμητική τιμή και την επιστρέφει
+    slope_x = derivative_x.subs({x: x0, y: y0}).evalf() # Calculate the derivative value at the point (x0, y0), convert the result to a numerical value and store it in the slope_x variable
+    # derivative_x: The partial derivative of the function with respect to the variable x
+    # .subs({x: x0, y: y0}): Method used to replace variables x, y with values ​​x0, y0 respectively
+    # .evalf(): Method that converts symbolic expression to numeric value and returns it
 
-    slope_y = derivative_y.subs({x: x0, y: y0}).evalf() # Κατά τον ίδιο τρόπο κι εδώ
+    slope_y = derivative_y.subs({x: x0, y: y0}).evalf() # In the same way here
 
     grad_norm = sp.sqrt(slope_x**2 + slope_y**2) # Υπολογίζεται το μέτρο του βαθμωτού το οποίο δείχνει πόσο γρήγορα αλλάζει η συνάρτηση στο σημείο που εξετάζουμε
     # grad_norm: Υπολογισμός του μέτρου (norm) του διανύσματος της κλίσης (gradient norm)
@@ -273,4 +273,5 @@ def main(): # Η συνάρτηση main()
 # Ολοκλήρωση της main
 
 main()
+
 
