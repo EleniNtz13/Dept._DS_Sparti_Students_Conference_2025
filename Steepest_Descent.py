@@ -1,7 +1,7 @@
 # The code creates the Steepest Descent Algorithm to find the minimum of a function of two variables
 # The user enters the initial points, parameters and the function he wanted to examine
 # The algorithm calculates the derivatives and the slope of the function, updating the points at each step# Η διαδικασία τερματίζεται:
-# 1) When one of the termination criteria is met (before the maximum number of iterations is exceeded) and thus the results and graphs (in three-dimensional and two-dimensional form) showing the progress of the algorithm are displayed
+# 1) When one of the termination criteria is satisfied (before the maximum number of iterations is exceeded) and thus the results and graphs (in three-dimensional and two-dimensional form) showing the progress of the algorithm are displayed
 # 2) When the maximum number of iterations is exceeded, informing the user that the number of iterations has been exceeded without displaying the graphs
 
 # The libraries used to execute the algorithm
@@ -147,72 +147,71 @@ def steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x, derivative_y): 
             # If this difference is less than the constant c3, then it does not change much from one point to another
             # This means that the optimization process is approaching the desired result
 
-                criterion = "3ο κριτήριο: Η σύγκλιση της συνάρτησης είναι μικρή." # Αν η παραπάνω συνθήκη είναι αληθής, τότε η τιμή "3ο κριτήριο: Η σύγκλιση της συνάρτησης είναι μικρή.", ανατίθεται στην μεταβλητή criterion
-                break # Αν ισχύουν τα παραπάνω, τότε σταματά η εκτέλεση του βρόχου και η διαδικασία ολοκληρώνεται
-                # Διακόπτεται η διαδικασία επειδή δεν υπάρχουν ουσιαστικές αλλαγές στις τιμές της συνάρτησης
-            # Αυτό σημαίνει πως η διαδικασία έχει ολοκληρωθεί αφού οι τιμές της συνάρτησης δεν αλλάζουν σημαντικά πια
-            # Έτσι, η συνάρτηση πλησιάζει στο σημείο ελαχίστου
+                criterion = "3rd criterion: The convergence of the function is small." # If the above condition is true, then the value "3rd criterion: The convergence of the function is small." is assigned to the variable criterion
+                break # If the above is true, then the loop execution stops and the process is completed. The process is aborted because there are no significant changes in the function values
+            # This means that the process is complete since the function values ​​are no longer changing significantly
+            # Thus, the function is approaching its minimum point
 
-        # Ενημέρωση μεταβλητών x0 και y0. Οι τιμές ενημερώνονται με βάση την κλίση και τον ρυθμό εκμάθησης (όπως αποδεικνύουν οι επόμενες πράξεις)
+        # Update variables x0 and y0. The values ​​are updated based on the slope and learning rate (as demonstrated in the following operations)
         x0 = x0 - a * slope_x
         y0 = y0 - a * slope_y
 
-        x_path.append(x0) # Προσθήκη (append) της τρέχουσα τιμής του x, δηλαδή κάθε φορά του x0, στην λίστα x_path, ώστε η λίστα αυτή να περιέχει όλα τα σημεία x που επισκέπτεται ο αλγόριθμος σε όλη την διαδικασία
-        # Έτσι, η λίστα προβάλλει τα σημεία που έχει περάσει το x καθώς πλησιάζει στο βέλτιστο
-        y_path.append(y0) # Προσθήκη (append) της τρέχουσα τιμής του y, δηλαδή κάθε φορά του y0, στην λίστα y_path, ώστε η λίστα αυτή να περιέχει όλα τα σημεία y που επισκέπτεται ο αλγόριθμος σε όλη την διαδικασία
-        # Έτσι, η λίστα προβάλλει τα σημεία που έχει περάσει το y καθώς πλησιάζει στο βέλτιστο
-        z_path.append(f_num(x0, y0)) # Προσθήκη (append) των τιμών της συνάρτησης σε κάθε (τρέχον) σημείο (x0, y0) στην λίστα z_path
-        # Με αυτό τον τρόπο, γνωρίζουμε πώς αλλάζει η τιμή της συνάρτησης καθώς πλησιάζουμε προς το βέλτιστο κατά την διάρκεια των επαναλήψεων του αλγορίθμου
-
-        # Μετάβαση στον επόμενο κύκλο επανάληψης της διαδικασίας για τον έλεγχο επόμενων σημείων
+        x_path.append(x0) # Append the current value of x, i.e. x0 each time, to the x_path list, so that this list contains all the points x visited by the algorithm throughout the process
+                          # Thus, the list displays the points that x has passed as it approaches the optimum
+        y_path.append(y0) # Append the current value of y, i.e. y0 each time, to the y_path list, so that this list contains all the y points visited by the algorithm throughout the process
+                          # # Thus, the list displays the points that y has passed as it approaches the optimum
+        z_path.append(f_num(x0, y0)) # Append the function values ​​at each (current) point (x0, y0) to the z_path list
+                                     # This way, we know how the function value changes as we approach the optimum during the algorithm iterations
+        
+        # Go to the next cycle of repeating the process to check the next points
         tries += 1
 
-    # Σε περίπτωση που ο αλγόριθμος δεν καταφέρει να συγκλίνει σε κάποιο βέλτιστο σημείο μέσα στον καθορισμένο αριθμό επαναλήψεων, τότε υπάρχει αποτυχία
-    if tries > MAX_TRIES: # Αν η διαδικασία για την εύρεση του ελαχίστου ξεπεράσει τις 1000 επαναλήψεις...
-        criterion = f"Η αναζήτηση απέτυχε: μέγιστες επαναλήψεις ({MAX_TRIES})." # ...ενημερώνει τον χρήστη για τον λόγο που ο αλγόριθμος απέτυχε να βρει το βέλτιστο
-        return x0, y0, None, criterion, False, x_path, y_path, z_path, tries # Επιστροφή των συγκεκριμένων σημείων, παραμέτρων, κριτηρίου και αριθμού επαναλήψεων
+    # If the algorithm fails to converge to an optimal point within the specified number of iterations, then there is a failure
+    if tries > MAX_TRIES: # If the process for finding the minimum exceeds 1000 iterations...
+        criterion = f"Η αναζήτηση απέτυχε: μέγιστες επαναλήψεις ({MAX_TRIES})." # ...informs the user about the reason the algorithm failed to find the optimum
+        return x0, y0, None, criterion, False, x_path, y_path, z_path, tries # Return the specified points, parameters, criterion and number of iterations
 
-    # Αν η εκτέλεση επιτευχθεί, τότε επιστρέφονται τα εξής:
-    # Οι τελικές τιμές των παραμέτρων, η τελική τιμή της συνάρτησης, ένα μήνυμα επιτυχίας & η κατάσταση επιτυχίας (True), η πορεία των τιμών x, y, f(x,y) και το συνολικό πλήθος επαναλήψεων
+    # If the execution is successful, then the following is returned:
+    # # The final values ​​of the parameters, the final value of the function, a success message & success status (True), the path of the values ​​x, y, f(x,y) and the total number of iterations
     return x0, y0, f_num(x0, y0), criterion, True, x_path, y_path, z_path, tries
 
-# Χρήση της κύριας συνάρτησης main(), η οποία εκτελεί όλο το πρόγραμμα. Είναι υπέυθυνη για την εκτέλεση του βασικού προγράμματος
-def main(): # Η συνάρτηση main()
-    x0, y0 = Initial_Point() # Ζητά από τον χρήστη τα αρχικά σημεία (x0, y0), καλώντας την συνάρτηση Initial_Point()
-    a, c1, c2, c3 = Parameters() # Ζητά από τον χρήστη τον ρυθμό εκμάθησης και τις σταθερές τερματισμού κριτηρίων (a, c1, c2, c3) καλώντας την συνάρτηση Parameters()
+# Use the main function main(), which executes the entire program. It is responsible for executing the main program
+def main(): #The function main()
+    x0, y0 = Initial_Point() # Asks the user for the initial points (x0, y0), calling the Initial_Point() function
+    a, c1, c2, c3 = Parameters() # Asks the user for the learning rate and criterion termination constants (a, c1, c2, c3) by calling the Parameters() function
 
-    f_sym = f() # Καλεί την συνάρτηση f(), η οποία ορίζει την συμβολική συνάρτηση που θέλουμε να βελτιστοποιήσουμε
-    x, y = sp.symbols('x y') # Δημιουργεί τις συμβολικές μεταβλητές x, y με την βιβλιοθήκη Sympy
+    f_sym = f() # Calls the function f(), which defines the symbolic function we want to optimize
+    x, y = sp.symbols('x y') # Creates the symbolic variables x, y with the Sympy library
 
-    # Μετατροπή της συνάρτησης από συμβολική σε αριθμητική συνάρτηση που μπορεί να υπολογίζει τις τιμές των x, y
+    # Convert the function from symbolic to numerical function that can calculate the values ​​of x, y
     f_num = sp.lambdify((x, y), f_sym, "numpy")
 
-    derivative_x_sym = sp.diff(f_sym, x) # Υπολογισμός μερικής παραγώγου της συνάρτησης f(x,y) ως προς x χρησιμοποιώντας την Sympy
-    derivative_y_sym = sp.diff(f_sym, y) # Υπολογισμός μερικής παραγώγου της συνάρτησης f(x,y) ως προς y χρησιμοποιώντας την Sympy
+    derivative_x_sym = sp.diff(f_sym, x) # Calculate the partial derivative of the function f(x,y) with respect to x using Sympy
+    derivative_y_sym = sp.diff(f_sym, y) # # Calculate the partial derivative of the function f(x,y) with respect to y using Sympy 
 
-    # Αποθήκευση αποτελεσμάτων μετά την εκτέλεση του κώδικα
+    # Save results after running the code
     min_x, min_y, min_value, criterion, show_plots, x_path, y_path, z_path, total_tries = steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x_sym, derivative_y_sym)
 
-    # Στην περίπτωση που ο μέγιστος αριθμός επαναλήψεων ξεπεραστεί, τότε δεν εμφανίζονται τα γραφήματα
+    # If the maximum number of iterations is exceeded, then the graphs are not displayed
     if not show_plots:
-        print("Ο μέγιστος αριθμός επαναλήψεων ξεπεράστηκε.") # Εμφανίζεται το συγκεκριμένο μήνυμα ενημερώνοντας τον χρήστη
+        print("Maximum number of repetitions exceeded.") # This specific message is displayed informing the user
         return
 
-    # Ο αλγόριθμος θα διαβάσει τις παρακάτω εντολές, σε περίπτωση που έχω:
+    # The algorithm will read the following commands, in case I have:
     print("-------------------------------------------------------------------------------------")
-    print(f"Ελάχιστο σημείο: ({min_x}, {min_y}), με τιμή συνάρτησης f(x, y) = {min_value}") # 1) τις τιμές του ελάχιστου σημείου, 2) της τιμής της συνάρτησης,
-    print("Κριτήριο σύγκλισης ->", criterion) # 3) το κριτήριο που ικανοποιήθηκε
-    print(f"Αριθμός επαναλήψεων: {total_tries}") # 4) τον αριθμό των επαναλήψεων
+    print(f"Minimum point: ({min_x}, {min_y}), with function value f(x, y) = {min_value}") # 1) The values ​​of the minimum point, 2) the value of the function
+    print("Convergence criterion ->", criterion) # 3) The satisfied criterion
+    print(f"Αριθμός επαναλήψεων: {total_tries}") # 4) The number of repetitions
 
-    # Αν τα παραπάνω αποτελέσματα είναι έγκυρα, τότε δημιουργούνται 3D και 2D γραφήματα τα οποία απεικονίζουν την πορεία του αλγορίθμου
-    x_vals = np.linspace(-1.5, 1.5, 400) # Αφορά τις 400 ενδιάμεσες τιμές από -1.5 έως 1.5 για τον άξονα x
-    y_vals = np.linspace(-1.5, 1.5, 400) # Αφορά τις 400 ενδιαμεσες τιμές από -1.5 έως 1.5 για τον άξονα y
-    X, Y = np.meshgrid(x_vals, y_vals) # Δημιουργία πινάκων X (περιέχει όλες τις συντεταγμένες του άξονα x) και Y (περιέχει όλες τις συντεταγμένες του άξονα y)
-    Z = f_num(X, Y) # Υπολογίζεται η τιμή της συνάρτησης f_num για κάθε ζεύγος (X,Y). Άρα, το Z αντιπροσωπεύει το ύψος του γραφήματος
-    fig = plt.figure(figsize=(14, 6)) # Δημιουργία σχήματος με διαστάσεις: 14 ίντσες πλάτος και 6 ίντσες ύψος
-    # figsize: Μέγεθος παραθύρου ώστε το γράφημα να είναι μεγάλο
+    # If the above results are valid, then 3D and 2D graphs are created which illustrate the progress of the algorithm
+    x_vals = np.linspace(-1.5, 1.5, 400) # It concerns the 400 intermediate values ​​from -1.5 to 1.5 for the x-axis
+    y_vals = np.linspace(-1.5, 1.5, 400) # It concerns the 400 intermediate values ​​from -1.5 to 1.5 for the y-axis
+    X, Y = np.meshgrid(x_vals, y_vals) # Create X (contains all x-axis coordinates) and Y (contains all y-axis coordinates) arrays
+    Z = f_num(X, Y) # Calculate the value of the function f_num for each pair (X,Y). So, Z represents the height of the graph
+    fig = plt.figure(figsize=(14, 6)) # Create a shape with dimensions: 14 inches wide and 6 inches high
+    # figsize: Window size so the graph is large
 
-    # 3D Plot (3 διαστάσεις: X, Y, Z)
+    # 3D Plot (3 dimensions: X, Y, Z)
     ax1 = fig.add_subplot(121, projection='3d')
     # Δημιουργία ενός υπογράφου στον πρώτο χώρο με διάταξη 1x2 (μία γραμμή και δύο στήλες), ο οποίος να έχει τρισδιάστατη μορφή (projection='3d')
 
@@ -272,6 +271,7 @@ def main(): # Η συνάρτηση main()
 # Ολοκλήρωση της main
 
 main()
+
 
 
 
