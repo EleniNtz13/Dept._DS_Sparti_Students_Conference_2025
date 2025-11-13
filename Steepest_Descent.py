@@ -1,51 +1,50 @@
-# Ο κώδικας υλοποιεί τον Αλγόριθμο της Steepest Descent για την εύρεση του ελαχίστου μιας συνάρτησης δύο μεταβλητών
-# Ο χρήστης εισάγει τα αρχικά σημεία, τις παραμέτρους και την συνάρτηση που θα ήθελε να εξετάσει
-# Ο αλγόριθμος υπολογίζει τις παραγώγους και την κλίση της συνάρτησης, ενημερώνοντας τα σημεία σε κάθε βήμα
-# Η διαδικασία τερματίζεται:
-# 1) όταν ικανοποιηθεί ένα από τα κριτήρια τερματισμού (προτού ξεπεραστεί ο μέγιστος αριθμός επαναλήψεων) και έτσι εμφανίζονται τα αποτελέσματα και τα γραφήματα (σε τρισδιάστατη και δισδιάστατη μορφή) που δείχνουν την πορεία του αλγορίθμου
-# 2) όταν ξεπεραστεί ο μέγιστος αριθμός επαναλήψεων ενημερώνοντας τον χρήστη πως ο αριθμός των επαναλήψεων ξεπεράστηκε χωρίς να εμφανιστούν οι γραφικές παραστάσεις
+# The code creates the Steepest Descent Algorithm to find the minimum of a function of two variables
+# The user enters the initial points, parameters and the function he wanted to examine
+# The algorithm calculates the derivatives and the slope of the function, updating the points at each step# Η διαδικασία τερματίζεται:
+# 1) When one of the termination criteria is met (before the maximum number of iterations is exceeded) and thus the results and graphs (in three-dimensional and two-dimensional form) showing the progress of the algorithm are displayed
+# 2) When the maximum number of iterations is exceeded, informing the user that the number of iterations has been exceeded without displaying the graphs
 
-# Οι βιβλιοθήκες που χρησιμοποιούνται για την εκτέλεση του αλγορίθμου
-import sympy as sp # Υπολογισμός συμβολικών πράξεων (π.χ. για εξισώσεις, για παραγώγους)
-import numpy as np # Εκτέλεση μαθηματικών πράξεων
-import matplotlib.pyplot as plt # Χρησιμοποιείται για την δημιουργία γραφημάτων και την απεικόνιση των αποτελεσμάτων
+# The libraries used to execute the algorithm
+import sympy as sp # Calculation of symbolic operations (e.g. for equations, for derivatives)
+import numpy as np # Performing mathematical operations
+import matplotlib.pyplot as plt # Used to create graphs and display results
 
-# Χρήση της συνάρτησης Initial_Point() για την είσοδο των αρχικών σημείων (x0,y0) από το χρήστη
-def Initial_Point(): # Η συνάρτηση Initial_Point()
-    while True: # Σε περίπτωση που ο χρήστης εισάγει μία τιμή που δεν είναι αριθμητική, ζητείται ξανά η είσοδος του σημείου, ενημερώνοντας τον χρήστη με αντίστοιχο μήνυμα
-        try: # Θα εμφανιστεί στην οθόνη στην περίπτωση που ο χρήστης εισάγει αριθμητική τιμή
-            print("Αρχικά σημεία & Ρυθμός εκμάθησης:") # Το μήνυμα εμφανίζεται αρχικά στην οθόνη του χρήστη
-            x0 = float(input("Το x0 είναι το αρχικό σημείο. Παρακαλώ εισάγετε το x0: ")) # Είσοδος του σημείου x0 από τον χρήστη
-            y0 = float(input("Το y0 είναι το αρχικό σημείο. Παρακαλώ εισάγετε το y0: ")) # Είσοδος του σημείου y0 από τον χρήστη
-            return x0, y0 # Επιστρέφει τα x0, y0
+# Using the Initial_Point() function to input the initial points (x0,y0) from the user
+def Initial_Point(): # The Initial_Point() function
+    while True: # If the user enters a non-numeric value, the user is prompted to enter the point again, informing the user with a corresponding message.
+        try: # Will be displayed on the screen if the user enters a numeric value
+            print("Initial Point & Learning Rate:") # The message is initially displayed on the user's screen
+            x0 = float(input("x0 is the coordinate of the x'x axis. Please enter x0: ")) # Input of point x0 by the user
+            y0 = float(input("y0 is the coordinate of the y'y axis. Please enter y0: ")) # User input of point y0
+            return x0, y0 # Returns x0, y0
 
-        except ValueError: # Θα εμφανιστεί στην οθόνη στην περίπτωση που ο χρήστης εισάγει λανθασμένη είσοδο, δηλαδή μία μη αριθμητική τιμή
-            print("Λάθος είσοδος! Παρακαλώ εισάγετε έγκυρους αριθμούς για x0 και y0.") # Για την προκειμένη περίπτωση, εμφανίζεται αντίστοιχο μήνυμα, ενημερώνοντας τον χρήστη και ζητώντας ξανά την είσοδο του σημείου που πληκτρολόγησε λάθος (χρήση της while True)
+        except ValueError: # Will be displayed on the screen in case the user enters an incorrect input (a non-numeric value)
+            print("Invalid input! Please enter valid numbers for x0 and y0.") # In this case, a corresponding message is displayed, informing the user and requesting the user to re-enter the point they typed incorrectly (using while True)
 
-# Χρήση της συνάρτησης Parameters() για την είσοδο του a (ρυθμού εκμάθησης - learning rate) και των σταθερών c1,c2,c3 που τερματίζουν τον αλγόριθμο
-def Parameters(): # Η συνάρτηση Parameters()
-    while True: # Σε περίπτωση που ο χρήστης εισάγει μία τιμή που δεν είναι αριθμητική, ζητείται ξανά η είσοδος της αντίστοιχης παραμέτρου, ενημερώνοντας τον χρήστη με αντίστοιχο μήνυμα
-        try: # Θα εμφανιστεί στην οθόνη σε περίπτωση που ο χρήστης εισάγει σωστή είσοδο (αριθμητική τιμή)
-            a = float(input("Το a είναι το learning rate. Παρακαλώ εισάγετε το a: ")) # Είσοδος του ρυθμού εκμάθησης (το πόσο γρήγορα προχωρά η μέθοδος προς την κατεύθυνση του ελαχίστου) από τον χρήστη
+# Using the Parameters() function to input a (learning rate) and the constants c1,c2,c3 that terminate the algorithm
+def Parameters(): # The Parameters() function
+    while True: # If the user enters a non-numeric value, the corresponding parameter is requested again, informing the user with a corresponding message
+        try: # Will be displayed on the screen in case the user enters correct input (numeric value)
+            a = float(input("a is learning rate. Please enter a: ")) # Input of the learning rate (how fast the method progresses towards the minimum) by the user
             print("-------------------------------------------------------------------------------------")
 
-            # Η λειτουργία του αλγορίθμου περιγράφεται στην επόμενη εντολή (print)
-            print("Ο αλγόριθμος της Steepest Descent σταματά αν ένα από τα παρακάτω κριτήρια τερματισμού ικανοποιηθεί: \n"
-            "1. Σε περίπτωση που ο αριθμός των επαναλήψεων ξεπεράσει τις 1000 και δεν έχει ικανοποιηθεί κάποιο από τα κριτήρια.\n"
-            "2. Η κλίση της συνάρτησης στο σημείο που έχει βρεθεί είναι μικρότερη από μια σταθερά c1 την οποία ορίζει ο χρήστης. \n"
-            " Αν η κλίση ισούται με 0 στο αρχικό σημείο (x0,y0), τότε ζητά από τον χρήστη να δώσει νέο αρχικό σημείο.\n"
-            " 3. Η απόσταση μεταξύ δύο διαδοχικών σημείων να είναι μικρότερη από μια σταθερά c2 την οποία ορίζει ο χρήστης. \n"
-            " 4. Η τιμή της συνάρτησης μεταξύ δύο διαδοχικών σημείων να είναι μικρότερη από μια σταθερά c3 την οποία ορίζει ο χρήστης. \n")
+            # The operation of the algorithm is described in the next command (print)
+            print("The Steepest Descent algorithm stops if one of the following termination criteria is met: \n"
+            "1. In case the number of iterations exceeds 1000 and any of the criteria has not been met.\n"
+            "2. The slope of the function at the point found is less than a constant c1 defined by the user. \n"
+            "If the slope is equal to 0 at the starting point (x0,y0), then it prompts the user for a new starting point.\n"
+            "3. The distance between two consecutive points must be less than a constant c2 defined by the user. \n"
+            "4. The value of the function between two consecutive points must be less than a constant c3 defined by the user. \n")
             print("-------------------------------------------------------------------------------------")
 
-            # Είσοδος των σταθερών και περιγραφή της λειτουργίας των αντίστοιχων κριτηρίων τερματισμού
-            print("Επομένως, για να προχωρήσει ο αλγόριθμός απαιτούνται τα c1, c2, c3 από τον χρήστη:")
-            c1 = float(input("1ο) Ποιο το c1 ώστε να μπορεί να εξεταστεί το κριτήριο |∇f| ≤ c1;")) # Το πρώτο κριτήριο αφορά το όριο της κλίσης
-            c2 = float(input("2ο) Ποιο το c2 ώστε να μπορεί να εξεταστεί το κριτήριο |Xn - Xn-1| ≤ c2; ")) # Το δεύτερο κριτήριο αφορά το όριο για την απόσταση μεταξύ δύο διαδοχικών σημείων
-            c3 = float(input("3ο) Ποιο το c3 ώστε να μπορεί να εξεταστεί το κριτήριο |f(Xn) - f(Xn-1)| ≤ c3; ")) # Το τρίτο κριτήριο αφορά το όριο για την διαφορά μεταξύ των τιμών της συνάρτησης σε διαδοχικά σημεία
-            return a, c1, c2, c3 # Επιστρέφει τα a, c1, c2, c3
+            # Input of constants and description of the operation of the corresponding termination criteria
+            print("Therefore, for the algorithm to proceed, c1, c2, c3 are required from the user:")
+            c1 = float(input("1st) What is c1 so that the criterion |∇f| ≤ c1 can be examined? ")) # The first criterion concerns the slope limit
+            c2 = float(input("2nd) What is c2 so that the criterion |Xn - Xn-1| ≤ c2 can be examined? ")) # The second criterion concerns the limit for the distance between two consecutive points
+            c3 = float(input("3rd) What is c3 so that the criterion |f(Xn) - f(Xn-1)| ≤ c3 can be examined? ")) # The third criterion concerns the limit for the difference between the values ​​of the function at successive points
+            return a, c1, c2, c3 # Returns a, c1, c2, c3
 
-        except ValueError: # Θα εμφανιστεί στην οθόνη στην περίπτωση που ο χρήστης εισάγει λανθασμένη είσοδο, δηλαδή μία είσοδο μη αριθμητική
+        except ValueError: # Will be displayed on the screen in case the user enters an incorrect input, i.e. a non-numeric input
             print("Λάθος είσοδος! Παρακαλώ εισάγετε έγκυρους αριθμούς.") # Για την προκειμένη περίπτωση, εμφανίζεται αντίστοιχο μήνυμα, ενημερώνοντας τον χρήστη και ζητώντας ξανά την είσοδο της παραμέτρου που πληκτρολόγησε λάθος (χρήση της while True)
 
 # Χρήση της συνάρτησης f() προκειμένου ο χρήστης να εισάγει την συνάρτηση f(x,y) που επιθυμεί, η οποία θα ελαχιστοποιηθεί σε μορφή συμβολικών παραστάσεων
@@ -272,4 +271,5 @@ def main(): # Η συνάρτηση main()
     plt.show()
 
 # Ολοκλήρωση της main
+
 main()
