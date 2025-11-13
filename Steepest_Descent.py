@@ -127,26 +127,26 @@ def steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x, derivative_y): 
             distance = sp.sqrt((x0 - prev_x)**2 + (y0 - prev_y)**2).evalf() # (x0 - prev_x)**2 + (y0 - prev_y)**2: Calculate the square of the distance between two points in two-dimensional space
             # .evalf(): Calculates the numerical value of the result, converting the symbolic expression to a decimal number and storing it in the distance variable
 
-            # Κριτήριο 2 -> Έλεγχος αν η απόσταση μεταξύ του τρέχοντος και του προτελευταίου σημείου είναι μικρότερη από την σταθερά c2:
-            # Αν είναι, διακόπτεται η διαδικασία και καταγράφεται το αποτέλεσμα στο criterion
-            # Αν δεν είναι, υπολογίζονται οι τιμές της συνάρτησης στο προτελευταίο και στο τρέχον σημείο και αποθηκεύονται στις μεταβλητές f_prev και f_current αντίστοιχα, προκειμένου να ολοκληρωθεί η διαδικασία της βελτιστοποίησης και να βρεθεί το ελάχιστο σημείο
-            if distance < c2: # distance: Η απόσταση, μάς δείχνει πόσο μακριά είναι τα δύο σημεία στον δισδιάστατο χώρο (έχει υπολογιστεί παραπάνω)
-            # Όταν η απόσταση δύο διαδοχικών σημείων είναι μικρότερη από την τιμή της σταθεράς c2 που έχει εισάγει ο χρήστης, τότε η συνθήκη είναι αληθής και τα σημεία είναι πολύ κοντά μεταξύ τους
-                criterion = "2ο κριτήριο: Η απόσταση μεταξύ δύο διαδοχικών σημείων είναι μικρή." # Η τιμή "2ο κριτήριο: Η απόσταση μεταξύ δύο διαδοχικών σημείων είναι μικρή.", ανατίθεται στην μεταβλητή criterion
-                break  # Αν ισχύουν τα παραπάνω, τότε σταματά η εκτέλεση του βρόχου και η διαδικασία ολοκληρώνεται
+            # Criterion 2 -> Check if the distance between the current and the penultimate point is less than the constant c2:
+            # If it is, the process is stopped and the result is recorded in criterion
+            # If it is not, the values ​​of the function at the penultimate and current points are calculated and stored in the variables f_prev and f_current respectively, in order to complete the optimization process and find the minimum point
+            if distance < c2: # distance: The distance shows us how far apart the two points are in two-dimensional space (it has been calculated above)
+            # When the distance between two consecutive points is less than the value of the constant c2 entered by the user, then the condition is true and the points are very close to each other
+                criterion = "2nd criterion: The distance between two consecutive points is small." # The value "2nd criterion: The distance between two consecutive points is small." is assigned to the variable criterion
+                break  # If the above is true, then the loop execution stops and the process is completed
 
-            f_prev = f_num(prev_x, prev_y) # Υπολογίζεται η τιμή της συνάρτησης f_num στο προτελευταίο σημείο (prev_x, prev_y), που είναι το προηγούμενο σημείο από το (x0, y0)
-            # Η τιμή της συνάρτησης στο προτελευταίο σημείο αποθηκεύεται στην μεταβλητή f_prev
-            f_current = f_num(x0, y0) # Υπολογίζεται η τιμή της συνάρτησης f_num στο τρέχον σημείο (x0, y0)
-            # Η τιμή της συνάρτησης στο τρέχον σημείο αποθηκεύεται στη μεταβλητή f_current
+            f_prev = f_num(prev_x, prev_y) # Calculate the value of the function f_num at the penultimate point (prev_x, prev_y), which is the previous point from (x0, y0)
+                                           # The value of the function at the penultimate point is stored in the variable f_prev
+            f_current = f_num(x0, y0) # Calculate the value of the function f_num at the current point (x0, y0)
+                                      # The value of the function at the current point is stored in the variable f_current
 
+            # Criterion 3 -> Convergence of the difference of values ​​of the function. Checks if the absolute difference between the values ​​of a function at two consecutive points is less than the constant c3:
+            # If it is, then the function has converged and the convergence criterion is recorded
+            if abs(f_current - f_prev) < c3: # abs(): Absolute value function
+            # Here, the absolute difference between the values ​​of the function at two consecutive points is calculated
+            # If this difference is less than the constant c3, then it does not change much from one point to another
+            # This means that the optimization process is approaching the desired result
 
-            # Κριτήριο 3 -> Σύγκλιση της διαφοράς τιμών της συνάρτησης. Ελέγχει αν η απόλυτη διαφορά μεταξύ των τιμών μιας συνάρτησης σε δύο διαδοχικά σημεία είναι μικρότερη από την σταθερά c3:
-            # Αν είναι, τότε η συνάρτηση έχει συγκλίνει και καταγράφεται το κριτήριο σύγκλισης
-            if abs(f_current - f_prev) < c3: # abs(): Συνάρτηση απόλυτης τιμής
-            # Εδώ, υπολογίζεται η απόλυτη διαφορά μεταξύ των τιμών της συνάρτησης σε δύο διαδοχικά σημεία
-            # Αν η διαφορά αυτή είναι μικρότερη από την σταθερά c3, τότε δεν αλλάζει πολύ από το ένα σημείο στο άλλο
-            # Αυτό σημαίνει πως η διαδικασία της βελτιστοποίησης πλησιάζει στο επιθυμητό αποτέλεσμα
                 criterion = "3ο κριτήριο: Η σύγκλιση της συνάρτησης είναι μικρή." # Αν η παραπάνω συνθήκη είναι αληθής, τότε η τιμή "3ο κριτήριο: Η σύγκλιση της συνάρτησης είναι μικρή.", ανατίθεται στην μεταβλητή criterion
                 break # Αν ισχύουν τα παραπάνω, τότε σταματά η εκτέλεση του βρόχου και η διαδικασία ολοκληρώνεται
                 # Διακόπτεται η διαδικασία επειδή δεν υπάρχουν ουσιαστικές αλλαγές στις τιμές της συνάρτησης
@@ -272,6 +272,7 @@ def main(): # Η συνάρτηση main()
 # Ολοκλήρωση της main
 
 main()
+
 
 
 
