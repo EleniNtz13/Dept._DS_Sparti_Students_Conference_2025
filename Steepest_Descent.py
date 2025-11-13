@@ -44,23 +44,23 @@ def Parameters(): # The Parameters() function
             c3 = float(input("3rd) What is c3 so that the criterion |f(Xn) - f(Xn-1)| ≤ c3 can be examined? ")) # The third criterion concerns the limit for the difference between the values ​​of the function at successive points
             return a, c1, c2, c3 # Returns a, c1, c2, c3
 
-        except ValueError: # Will be displayed on the screen in case the user enters an incorrect input, i.e. a non-numeric input
-            print("Λάθος είσοδος! Παρακαλώ εισάγετε έγκυρους αριθμούς.") # Για την προκειμένη περίπτωση, εμφανίζεται αντίστοιχο μήνυμα, ενημερώνοντας τον χρήστη και ζητώντας ξανά την είσοδο της παραμέτρου που πληκτρολόγησε λάθος (χρήση της while True)
+        except ValueError: # Will be displayed on the screen in case the user enters an incorrect input (a non-numeric input)
+            print("Invalid input! Please enter valid numbers.") # In this case, a corresponding message is displayed, informing the user and requesting the user to re-enter the parameter that was typed incorrectly (use of while True)
 
-# Χρήση της συνάρτησης f() προκειμένου ο χρήστης να εισάγει την συνάρτηση f(x,y) που επιθυμεί, η οποία θα ελαχιστοποιηθεί σε μορφή συμβολικών παραστάσεων
-# Έτσι, επιστρέφει την συνάρτηση σε μορφή που μπορεί να επεξεργαστεί αλγεβρικά από την sympy
-def f(): # Η συνάρτηση f()
-    while True: # Σε περίπτωση που ο χρήστης εισάγει οτιδήποτε πέρα από εξίσωση, ζητείται ξανά η είσοδος της συνάρτησης, ενημερώνοντας τον χρήστη με αντίστοιχο μήνυμα
-        try: # Θα εμφανιστεί στην οθόνη όταν ο χρήστης δώσει έγκυρη συνάρτηση (π.χ. 5*x + 4*y)
+# Using the f() function so that the user can enter the desired function f(x,y) which will be minimized in symbolic form
+# This returns the function in a form that can be processed algebraically by sympy
+def f(): # The function f()
+    while True: # If the user enters anything other than an equation, the function is requested again, informing the user with a corresponding message
+        try: # Will be displayed on the screen when the user gives a valid function (e.g. 5*x + 4*y)
             print("-------------------------------------------------------------------------------------")
-            expr_str = input("Παρακαλώ εισάγετε τη συνάρτηση σε μορφή x και y (π.χ., x**2 + y**4): ") # Εισαγωγή της συνάρτησης δύο μεταβλητών από τον χρήστη
-            expr = sp.sympify(expr_str) # Μετατροπή της συμβολοσειράς (string) σε αλγεβρική παράσταση
-            return expr # Επιστρέφει την αλγεβρική παράσταση
+            expr_str = input("Please enter the function in x and y form (e.g., x**2 + y**4): ") # User input of the two-variable function
+            expr = sp.sympify(expr_str) # Convert the string to an algebraic expression
+            return expr # Returns the algebraic expression
 
-        except sp.SympifyError: # Θα εμφανιστεί στην οθόνη στην περίπτωση που ο χρήστης εισάγει μη έγκυρη συνάρτηση (π.χ. 5x + 4y)
-            print("Λάθος είσοδος! Παρακαλώ εισάγετε έγκυρη συνάρτηση.") # Για την προκειμένη περίπτωση, εμφανίζεται αντίστοιχο μήνυμα, ενημερώνοντας τον χρήστη και ζητώντας ξανά την είσοδο έγκυρης συνάρτησης
+        except sp.SympifyError: # Will be displayed on the screen if the user enters an invalid function (e.g. 5x + 4y)
+            print("Invalid input! Please enter a valid function.") # In this case, a corresponding message is displayed, informing the user and requesting the input of a valid function again
 
-# Υλοποίηση του αλγορίθμου της steepest_descent για την ελαχιστοποίηση μιας συνάρτησης δύο μεταβλητών
+# Implementation of the steepest_descent algorithm for minimizing a function of two variables
 def steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x, derivative_y): # f_num: Η συνάρτηση προς ελαχιστοποίηση - μετατροπή της συμβολικής συνάρτησης σε αριθμητική με χρήση του lambdify από την sympy
     tries = 0 # tries: Αντιπροσωπεύει τον αριθμό των επαναλήψεων του αλγορίθμου, δηλαδή πόσες φορές ο αλγόριθμος θα επαναλάβει την διαδικασία για την συνάρτηση που έχει εισάγει ο χρήστης
     MAX_TRIES = 1000 # MAX_TRIES: Ο μέγιστος αριθμός επαναλήψεων. Αν ο αλγόριθμος δεν συγκλίνει πριν φτάσει σε αυτόν τον αριθμό, τότε θα τερματιστεί
@@ -273,3 +273,4 @@ def main(): # Η συνάρτηση main()
 # Ολοκλήρωση της main
 
 main()
+
