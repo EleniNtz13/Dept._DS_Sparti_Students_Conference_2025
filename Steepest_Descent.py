@@ -213,63 +213,64 @@ def main(): #The function main()
 
     # 3D Plot (3 dimensions: X, Y, Z)
     ax1 = fig.add_subplot(121, projection='3d')
-    # Δημιουργία ενός υπογράφου στον πρώτο χώρο με διάταξη 1x2 (μία γραμμή και δύο στήλες), ο οποίος να έχει τρισδιάστατη μορφή (projection='3d')
+    # Create a subgraph in the first space with a 1x2 layout (one row and two columns), which has a three-dimensional form (projection='3d')
 
-    ax1.plot_surface(X, Y, Z, alpha=0.3, cmap='viridis') # Δημιουργία επιφάνειας
-    # alpha=0.3: Δημιουργία ημιδιαφανούς επιφάνειας ώστε να διακρίνονται τα στοιχεία από κάτω
-    # cmap='viridis': Αφορά τα χρώματα που θα απεικονίσουν την επιφάνεια (στυλ "viridis")
+    ax1.plot_surface(X, Y, Z, alpha=0.3, cmap='viridis') # Create a surface
+    # alpha=0.3: Create a translucent surface so that the elements underneath can be seen
+    # cmap='viridis': This concerns the colors that will depict the surface ("viridis" style)
 
-    ax1.plot(x_path, y_path, z_path, 'r-', label='Steepest Descent Path') # Η συνάρτηση αυτή σχεδιάζει την πορεία του αλγορίθμου της Steepest Descent
-    # x_path, y_path, z_path: Λίστες που περιέχουν τις συντεταγμένες της πορείας του αλγορίθμου
-    # r-: Ορίζει το χρώμα και τον τύπο της γραμμής (r: κόκκινο, -: συνεχής)
-    # label='Steepest Descent Path': Ορίζει την ετικέτα
+    ax1.plot(x_path, y_path, z_path, 'r-', label='Steepest Descent Path') # This function plots the path of the Steepest Descent algorithm
+    # x_path, y_path, z_path: Lists containing the coordinates of the algorithm path
+    # r-: Sets the color and type of the line (r: red, -: solid)
+    # label='Steepest Descent Path': Sets the label
 
-    ax1.scatter(min_x, min_y, min_value, color='red', s=100, label='Ελάχιστο Σημείο') # Τοποθέτηση του ελαχίστου
-    # min_x, min_y, min_value: Περιέχουν τις συντεταγμένες του ελαχίστου
-    # color='red': Ορίζει το χρώμα του ελαχίστου
-    # s=100: Μέγεθος ελαχίστου (κουκίδας)
-    # label='Ελάχιστο Σημείο': Ορίζει την ετικέτα
+    ax1.scatter(min_x, min_y, min_value, color='red', s=100, label='Ελάχιστο Σημείο') # Placing the minimum
+    # min_x, min_y, min_value: Contains the coordinates of the minimum
+    # color='red': Sets the color of the minimum
+    # s=100: Size of the minimum (dot)
+    # label='Minimum Point': Sets the label
 
-    # Ορίζει τις ετικέτες για τους άξονες x, y, z
+    # Defines the labels for the x, y, z axes
     ax1.set_xlabel('$x$')
     ax1.set_ylabel('$y$'),
     ax1.set_zlabel('$f(x, y)$')
 
-    # Προσθήκη λεζάντας για την εμφάνιση των labels που έχουμε καθορίσει για κάθε στοιχείο
+    # Add a caption to display the labels we have defined for each element
     ax1.legend()
 
 
-    # 2D Contour Plot (Ισοϋψεις Καμπύλες)
+    # 2D Contour Plot (Contour Curves)
     ax2 = fig.add_subplot(122)
-    # Δημιουργία ενός νέου υπογράφου στον δεύτερο χώρο με διάταξη 1x2 (μία γραμμή και δύο στήλες)
+    # Create a new subgraph in the second space with a 1x2 layout (one row and two columns)
 
-    ax2.contour(X, Y, Z, levels=50, cmap='viridis') # Σχεδίαση ισοϋψών καμπυλών
-    # levels=50: Ορίζει τον αριθμό των ισοϋψών καμπυλών που θα σχεδιαστούν
-    # cmap='viridis': Αφορά τα χρώματα που θα απεικονίσουν τις καμπύλες (στυλ "viridis")
+    ax2.contour(X, Y, Z, levels=50, cmap='viridis') # Draw contour lines
+    # levels=50: Defines the number of contour lines to draw
+    # cmap='viridis': Refers to the colors that will depict the curves ("viridis" style)
 
-    ax2.plot(x_path, y_path, 'r-', label='Steepest Descent Path') # Η συνάρτηση αυτή σχεδιάζει την πορεία του αλγορίθμου της Steepest Descent
-    # x_path, y_path: Λίστες που περιέχουν τις συντεταγμένες της πορείας του αλγορίθμου
-    # r-: Ορίζει το χρώμα και τον τύπο της γραμμής (r: κόκκινο, -: συνεχής)
-    # label='Steepest Descent Path': Ορίζει την ετικέτα
+    ax2.plot(x_path, y_path, 'r-', label='Steepest Descent Path') # This function draws the path of the Steepest Descent algorithm
+    # x_path, y_path: Lists containing the coordinates of the path of the algorithm
+    # r-: Sets the color and type of the line (r: red, -: solid)
+    # label='Steepest Descent Path': Sets the label
 
-    ax2.scatter(min_x, min_y, color='red', s=100, label='Ελάχιστο Σημείο') # Τοποθέτηση του ελαχίστου
-    # min_x, min_y: Περιέχουν τις συντεταγμένες του ελαχίστου
-    # color='red': Ορίζει το χρώμα του ελαχίστου
-    # s=100: Μέγεθος ελαχίστου (κουκίδας)
-    # label='Ελάχιστο Σημείο': Ορίζει την ετικέτα
+    ax2.scatter(min_x, min_y, color='red', s=100, label='Ελάχιστο Σημείο') # Placing the minimum
+    # min_x, min_y: Contains the coordinates of the minimum
+    # color='red': Sets the color of the minimum
+    # s=100: Size of the minimum (dot)
+    # label='Minimum Point': Sets the label
 
-    # Ορίζει τις ετικέτες για τους άξονες x, y
+    # Defines the labels for the x, y axes
     ax2.set_xlabel('$x$')
     ax2.set_ylabel('$y$')
 
-    # Προσθήκη λεζάντας για την εμφάνιση των labels που έχουμε καθορίσει για κάθε στοιχείο
+    # Add a caption to display the labels we have defined for each element
     ax2.legend()
 
-    # Εμφάνιση 3D και 2D γραφημάτων
+    # Display 3D and 2D graphs
     plt.show()
 
-# Ολοκλήρωση της main
+# Completing main
 
 main()
+
 
 
