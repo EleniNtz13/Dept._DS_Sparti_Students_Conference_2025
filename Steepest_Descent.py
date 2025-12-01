@@ -90,8 +90,8 @@ def steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x, derivative_y): 
     slope_y_expr = derivative_y # The value of the partial derivative with respect to y is assigned to the variable slope_y_expr
     slope_x = slope_x_expr.subs({x: x0, y: y0}).evalf() # Replace x,y by x0,y0 & calculate the numerical value of the partial derivative with respect to x at the point (x0, y0)
     slope_y = slope_y_expr.subs({x: x0, y: y0}).evalf() # Replace x,y by x0,y0 & calculate the numerical value of the partial derivative with respect to y at the point (x0, y0)
-    print("Η μερική παράγωγος ως προς x:", slope_x_expr) # Display the partial derivative with respect to x
-    print("Η μερική παράγωγος ως προς y:", slope_y_expr) # # Display the partial derivative with respect to y
+    print("The partial derivative with respect to x is: ", slope_x_expr) # Display the partial derivative with respect to x
+    print("The partial derivative with respect to y is: ", slope_y_expr) # # Display the partial derivative with respect to y
 
     # In case the slope is 0, we ask the user to give new x0 and y0
     while grad_norm == 0:
@@ -116,8 +116,8 @@ def steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x, derivative_y): 
         # TERMINATION CRITERIA
         # Criterion 1 -> Check if the slope is less than the constant c1:
         # If it is, the process is stopped and the result is recorded in criterion
-        # If not, check if there are at least two points in the points list. If there are, calculate the distance of the last and penultimate point, based on the Euclidean distance formula
-        if grad_norm < c1: # grad_norm: the value of the gradient. If the value of the gradient is less than the constant c1 defined above, then the algorithm proceeds to the next instructions after the 1st criterion is satisfied
+        # If it is not, check if there are at least two points in the points list. If there are, calculate the distance of the last and penultimate point, based on the Euclidean distance formula
+        if grad_norm < c1: # grad_norm: The value of the gradient. If the value of the gradient is less than the constant c1 defined above, then the algorithm proceeds to the next instructions after the 1st criterion is satisfied
             criterion = "1st criterion: The slope is small." # If the above condition is true, then the variable criterion is assigned the value "1st criterion: The slope is small.", which recognizes that the 1st criterion has been satisfied
             break # If the above is true, then the loop execution stops and the process is completed
 
@@ -159,7 +159,7 @@ def steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x, derivative_y): 
         x_path.append(x0) # Append the current value of x, i.e. x0 each time, to the x_path list, so that this list contains all the points x visited by the algorithm throughout the process
                           # Thus, the list displays the points that x has passed as it approaches the optimum
         y_path.append(y0) # Append the current value of y, i.e. y0 each time, to the y_path list, so that this list contains all the y points visited by the algorithm throughout the process
-                          # # Thus, the list displays the points that y has passed as it approaches the optimum
+                          # Thus, the list displays the points that y has passed as it approaches the optimum
         z_path.append(f_num(x0, y0)) # Append the function values ​​at each (current) point (x0, y0) to the z_path list
                                      # This way, we know how the function value changes as we approach the optimum during the algorithm iterations
         
@@ -172,11 +172,11 @@ def steepest_descent(f_num, x0, y0, a, c1, c2, c3, derivative_x, derivative_y): 
         return x0, y0, None, criterion, False, x_path, y_path, z_path, tries # Return the specified points, parameters, criterion and number of iterations
 
     # If the execution is successful, then the following is returned:
-    # # The final values ​​of the parameters, the final value of the function, a success message & success status (True), the path of the values ​​x, y, f(x,y) and the total number of iterations
+    # The final values ​​of the parameters, the final value of the function, a success message & the success status (True), the path of the values ​​x, y, f(x,y) and the total number of iterations
     return x0, y0, f_num(x0, y0), criterion, True, x_path, y_path, z_path, tries
 
 # Use the main function main(), which executes the entire program. It is responsible for executing the main program
-def main(): #The function main()
+def main(): # The function main()
     x0, y0 = Initial_Point() # Asks the user for the initial points (x0, y0), calling the Initial_Point() function
     a, c1, c2, c3 = Parameters() # Asks the user for the learning rate and criterion termination constants (a, c1, c2, c3) by calling the Parameters() function
 
@@ -201,7 +201,7 @@ def main(): #The function main()
     print("-------------------------------------------------------------------------------------")
     print(f"Minimum point: ({min_x}, {min_y}), with function value f(x, y) = {min_value}") # 1) The values ​​of the minimum point, 2) the value of the function
     print("Convergence criterion ->", criterion) # 3) The satisfied criterion
-    print(f"Αριθμός επαναλήψεων: {total_tries}") # 4) The number of repetitions
+    print(f"Total repetitions: {total_tries}") # 4) The number of repetitions
 
     # If the above results are valid, then 3D and 2D graphs are created which illustrate the progress of the algorithm
     x_vals = np.linspace(-1.5, 1.5, 400) # It concerns the 400 intermediate values ​​from -1.5 to 1.5 for the x-axis
@@ -271,6 +271,7 @@ def main(): #The function main()
 # Completing main
 
 main()
+
 
 
 
