@@ -1,8 +1,8 @@
 # The code creates the Steepest Descent Algorithm to find the minimum of a function of two variables
 # The user enters the initial points, parameters and the function he wanted to examine
-# The algorithm calculates the derivatives and the slope of the function, updating the points at each step# Η διαδικασία τερματίζεται:
-# 1) When one of the termination criteria is satisfied (before the maximum number of iterations is exceeded) and thus the results and graphs (in three-dimensional and two-dimensional form) showing the progress of the algorithm are displayed
-# 2) When the maximum number of iterations is exceeded, informing the user that the number of iterations has been exceeded without displaying the graphs
+# The algorithm calculates the derivatives and the slope of the function, updating the points at each step. The process teminates:
+# 1) when one of the termination criteria is satisfied (before the maximum number of iterations is exceeded), then the results are displayed on the user's screen
+# 2) when the maximum number of iterations is exceeded, informing the user that the number of iterations has been exceeded without displaying the graphs
 
 # The libraries used to execute the algorithm
 import sympy as sp # Calculation of symbolic operations (e.g. for equations, for derivatives)
@@ -271,6 +271,7 @@ def main(): #The function main()
 # Completing main
 
 main()
+
 
 
 
