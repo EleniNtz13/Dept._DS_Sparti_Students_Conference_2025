@@ -11,9 +11,9 @@ import matplotlib.pyplot as plt # Used to create graphs and display results
 
 # Using the Initial_Point() function to input the initial points (x0,y0) from the user
 def Initial_Point(): # The Initial_Point() function
-    while True: # If the user enters a non-numeric value, the user is prompted to enter the point again, informing the user with a corresponding message.
+    while True: # If the user enters a non-numeric value, the user is prompted to enter the point again, informing the user with a corresponding message
         try: # Will be displayed on the screen if the user enters a numeric value
-            print("Initial Point & Learning Rate:") # The message is initially displayed on the user's screen
+            print("Initial Point & Learning Rate: ") # The message is initially displayed on the user's screen
             x0 = float(input("x0 is the coordinate of the x'x axis. Please enter x0: ")) # Input of point x0 by the user
             y0 = float(input("y0 is the coordinate of the y'y axis. Please enter y0: ")) # User input of point y0
             return x0, y0 # Returns x0, y0
@@ -21,7 +21,7 @@ def Initial_Point(): # The Initial_Point() function
         except ValueError: # Will be displayed on the screen in case the user enters an incorrect input (a non-numeric value)
             print("Invalid input! Please enter valid numbers for x0 and y0.") # In this case, a corresponding message is displayed, informing the user and requesting the user to re-enter the point they typed incorrectly (using while True)
 
-# Using the Parameters() function to input a (learning rate) and the constants c1,c2,c3 that terminate the algorithm
+# Using the Parameters() function to input a (learning rate) and the constants c1, c2, c3 that terminate the algorithm
 def Parameters(): # The Parameters() function
     while True: # If the user enters a non-numeric value, the corresponding parameter is requested again, informing the user with a corresponding message
         try: # Will be displayed on the screen in case the user enters correct input (numeric value)
@@ -29,8 +29,8 @@ def Parameters(): # The Parameters() function
             print("-------------------------------------------------------------------------------------")
 
             # The operation of the algorithm is described in the next command (print)
-            print("The Steepest Descent algorithm stops if one of the following termination criteria is met: \n"
-            "1. In case the number of iterations exceeds 1000 and any of the criteria has not been met.\n"
+            print("The Steepest Descent algorithm stops if one of the following termination criteria is satisfied: \n"
+            "1. In case the number of iterations exceeds 1000 and any of the criteria has not been satisfied.\n"
             "2. The slope of the function at the point found is less than a constant c1 defined by the user. \n"
             "If the slope is equal to 0 at the starting point (x0,y0), then it prompts the user for a new starting point.\n"
             "3. The distance between two consecutive points must be less than a constant c2 defined by the user. \n"
@@ -271,6 +271,7 @@ def main(): #The function main()
 # Completing main
 
 main()
+
 
 
 
