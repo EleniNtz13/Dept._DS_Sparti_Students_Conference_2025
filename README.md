@@ -37,8 +37,8 @@ The first code implements the Steepest Descent algorithm to minimize a two-varia
 - The gradient norm is smaller than $𝑐_1$:
   $\nabla f(x_{k+1}) < c_1\$
 
-- The distance between successive points is less than $𝑐_2$
-  $\ x_{k+1} - x_k < c_2\$
+- The distance between successive points is less than $𝑐_2$:
+   $\ x_{k+1} - x_k < c_2\$
 
 - The difference in function values between iterations is less than $𝑐_3$
 
