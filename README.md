@@ -57,7 +57,7 @@ The first code implements the Steepest Descent algorithm to minimize a two-varia
 
 
 #### 2️⃣ Question Generation Based on Algorithm Parameters (API_Conf_DS_2025.py)
-The second code uses the OpenAI API to generate multiple-choice questions *based on the algorithm’s logic and structure 🧠*, without external documents. The questions are created in Greek and are tailored to the Steepest Descent method, using a predefined prompt that includes theoretical context and algorithmic details. The difficulty of each question is defined using a Likert scale (1–5), and the output is saved in a text file.
+The second code uses the OpenAI API to generate multiple-choice questions *based on the algorithm’s logic and structure 🧠*, without external documents. The questions are created in Greek and are tailored to the Steepest Descent method, using a predefined prompt that includes theoretical context and algorithmic details. Each question is assigned a difficulty level from 1 to 5, and the output is saved in a text file.
 
 #### 3️⃣ Question Generation Based on PDF Input (API_PDF.py)
 The third code also uses the OpenAI API, but with a different approach: it enhances the language model’s input *by providing a PDF document 📝* containing theoretical or practical content related to the Steepest Descent method. The model extracts relevant information from the PDF and generates questions accordingly, allowing for deeper contextualization and more accurate alignment with the source material.
