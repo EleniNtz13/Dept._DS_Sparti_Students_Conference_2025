@@ -12,11 +12,9 @@ def extract_text_from_pdf(pdf_path): # Defines a function named extract_text_fro
         return text # Returns the full extracted text from the PDF
 
 pdf_path = "document.pdf" # Specifies the path to the PDF file
-# Tries to extract text from the PDF using the function defined earlier
-try:
+try: # Tries to extract text from the PDF using the function defined earlier
     pdf_text = extract_text_from_pdf(pdf_path)
-# If the file is not found, prints an error message in Greek and exits the program    
-except FileNotFoundError:
+except FileNotFoundError: # If the file is not found, prints an error message in Greek and exits the program    
     print(f"Error: PDF '{pdf_path}' is not found.")
     exit(1)
 
@@ -52,6 +50,3 @@ with open("output.txt", "w", encoding="utf-8") as output_file:
 
 # Prints a message confirming that the questions were saved to the file
 print("The questions were saved to the file 'output.txt'")
-
-
-
