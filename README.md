@@ -35,7 +35,7 @@ The first code implements the Steepest Descent algorithm to minimize a two-varia
 🧮 The algorithm calculates partial derivatives and the gradient, updating the coordinates at each iteration. The process terminates when:
 
 - The gradient norm is smaller than $𝑐_1$:
-  $\nabla f(x_{k+1}) < c_1\$
+        $\nabla f(x_{k+1}) < c_1\$
 
 - The distance between successive points is less than $𝑐_2$:
   $\ x_{k+1} - x_k < c_2\$
