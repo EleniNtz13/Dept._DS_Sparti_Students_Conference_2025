@@ -76,8 +76,9 @@ The third code also uses the OpenAI API, but with a different approach: it enhan
 - A clear connection between mathematical theory and modern AI tools, enhancing student engagement and understanding
 
 
-### 🧠 Tools Used 
+### 🧠 Tools Used for assistance and code optimization
 
-- ChatGPT AI Tool for assistance 
-- Google Colab for code optimization
+- **ChatGPT AI Tool**  
+- **DeepSeek** 
+- **Google Colab** 
   
