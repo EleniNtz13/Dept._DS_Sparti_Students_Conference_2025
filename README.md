@@ -78,7 +78,7 @@ The third code also uses the OpenAI API, but with a different approach: it enhan
 
 ### 🧠 Tools Used for assistance and code optimization
 
-- **ChatGPT AI Tool**  
-- **DeepSeek** 
-- **Google Colab** 
+- ChatGPT AI Tool  
+- DeepSeek
+- Google Colab 
   
