@@ -1,4 +1,4 @@
-## 🎓 Mathematical Concepts of Linear Algebra and Optimization Using a Generative Artificial Intelligence Tool – Implementation of the Steepest Descent Method
+## 🎓 Optimization in Machine Learning: Analysis and Implementation of the Steepest Descent Algorithm and Use of API for Creating Educational Questions
 
 This project was developed as part of my undergraduate thesis at University of Peloponnese. This project was presented at the **1st Student and Mathematical Conference** of the UoP 🏫, organized by the Department of Digital Systems 💻 in **Sparta** on *March 14, 2025*. Its aim was to bridge theoretical mathematical concepts with modern artificial intelligence technologies through the practical implementation of the Steepest Descent algorithm.
 
